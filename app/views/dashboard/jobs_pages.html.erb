@@ -1,0 +1,14 @@
+<h2>Boston Crawler</h2>
+<h3>Jobs Pages</h3>
+<% @startup_crawlers.each do |sc| %>
+  <h4>
+    <%= link_to(sc.name, sc.url, target: 'blank') %>
+  </h4>
+  <p>
+    <% if sc.jobs_page.present? %>
+      <%= link_to "Jobs Page (#{sc.jobs_page})", sc.jobs_page %>
+    <% end %>
+  </p>
+  <br/>
+  <br/>
+<% end %>

@@ -16,7 +16,7 @@ class StartupCrawler
   
   def jobs_page
     existing_link = @html.css('span.jobs-link a').first
-    return existing_link.attributes['href'] if existing_link.present?
+    return existing_link.attributes['href'].to_s if existing_link.present?
     # 
     # website_html = 
   end

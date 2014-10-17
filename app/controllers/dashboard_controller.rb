@@ -16,7 +16,6 @@ class DashboardController < ApplicationController
     
     startups_page = Nokogiri::HTML(open(url))
     startup_rows = startups_page.css('.post-single')
-    startup_crawlers = startup_rows.collect { |r| StartupCrawler.new(r) }
-    raise startup_crawlers.collect { |sc| "#{sc.name} = #{sc.jobs_page}" }.join('    ---    ').inspect
+    @startup_crawlers = startup_rows.collect { |r| StartupCrawler.new(r) }
   end
 end
